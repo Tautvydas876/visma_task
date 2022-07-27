@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div>
+    <header class="header text-center">
+        <h3>Login</h3>
+    </header>
+</div>
+<div>
+    <form method="post" th:action="@{/login}">
+        <div class="form-group text-center">
+
+          <span class="input">
+                 <label class="input_label ">
+                  <span class="input__label-context">User Name: </span>
+              </label>
+            <input class="input_field" type="text" autocomplete="off" name="username">
+          </span>
+            <br></br>
+            <span class="input text-center">
+                 <label class="input_label">
+                  <span class="input_label-context">Password : </span>
+              </label>
+            <input class="input_field" type="password" autocomplete="off" name="password">
+          </span>
+            <br></br>
+            <input class="btn_1 rounded full-width add_top_60 text-center" type="submit" value="Login"/>
+            <br></br>
+            <div class="text-center">
+                <strong>
+                    <a href="registration">Sign In</a>
+                </strong>
+            </div>
+            <br></br>
+            <span class="has_error text-center" style="color: red" th:text="${error}"></span>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

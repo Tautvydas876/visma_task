@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Person</title>
+</head>
+<body>
+<div class="text-center">
+    <br>
+    <h3>DELETE A PERSON FROM THE MEETING</h3>
+    <br>
+</div>
+    <div>
+        <form th:action="@{/home-Page}">
+            <input type="submit" value="Home Page">
+        </form>
+    </div>
+
+    <br>
+<div>
+    <div class="text-left">
+        <form  th:object="${listData}" method="post" th:action="@{/delete-person}">
+            <div class="form-group">
+                <label for="meeting"  >Meting: </label>
+                <select name="meeting" id="meeting" >
+                    <option th:each="list : ${listData}" th:text="${list.name}" ></option>
+                </select>
+
+
+                <label for="person">Person: </label>
+                <select name="person" id="person"  >
+                    <span th:each="list : ${listData}"  >
+                    <option    th:each="person : ${list.person}"   th:text="${person}" ></option>
+                    </span>
+                </select>
+            </div>
+            <div>
+                <br>
+                <input type="submit"   value="Delete" >
+            </div>
+            <br>
+
+
+                <span class="text-center" th:text="${error}" style="background-color: red" ></span>
+                <span class="text-center" th:text="${success}" style="background-color: greenyellow" ></span>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
